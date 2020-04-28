@@ -1,0 +1,61 @@
+SCM
+(Eg is Github)
+uploading --> push
+downloading --> pull
+
+Version Control System (VCS)
+
+Github has Single Point of failure, it is CVCS, Centralized.
+Git is VCS,it is DVCS, De-Centralised.
+
+Workspace is folder containing variety of folders and files
+Whereas, Repository is folder containing  variety of folders and files along with Version Control.
+
+$git clone <url>
+It will the download the code from the GitHub or CVCS.
+
+$git log <filename>
+---------------------------------------------
+ay@Neelkanth:~/PycharmProjects/DevOps$ git log
+commit 9571af0bdf427c331fdc54575475d0c81bce8812 (HEAD -> master)
+Author: Ankit Yadav <reach.ankitjnyadav@gmail.com>
+Date:   Tue Apr 28 20:56:42 2020 +0530
+
+    Hello DevOps World!
+----------------------------------------------
+
+$git status
+Give the status of current status of the repository.
+What are the changes, addition, modification or deletiong in the repository.
+
+$git status -s
+----------------------------------------------
+ay@Neelkanth:~/PycharmProjects/DevOps$ git status -s
+AM Git/Git
+?? .idea/vcs.xml
+----------------------------------------------
+
+Working Area
+Staging Area
+Commit Area
+
+
+$git add <filename>
+$git commit -m <message>
+
+GitHub becomes origin
+
+$git push
+
+HEAD points to the current version
+origin/master points to version of data GitHub has.
+
+
+First, Add
+Then, Commit
+Finally, Push
+
+To rollback
+$git reset HEAD <commit_SHA_value> <filename>
+$git checkout -- <filename>
+
