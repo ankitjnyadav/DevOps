@@ -59,3 +59,68 @@ To rollback
 $git reset HEAD <commit_SHA_value> <filename>
 $git checkout -- <filename>
 
+---------------Day2--------------------
+
+$git init
+to initialize/create a local repository
+
+
+$git status -s
+-s, --short <--> show status concisely
+
+ay@Neelkanth:~/PycharmProjects/DevOps$ git status -s
+ M Git/Git
+
+M --> signifies that file is modified.
+
+$ git status -s
+ M Git/Git
+?? new.html
+
+?? -> untracked file
+
+$ git add .
+$ git status -s
+M  Git/Git
+A  new.html
+
+A -> Newly added
+
+$git commit <filename> -m <comment>
+
+First time setup, its imp as its the identity who is commit.
+$ git config --global user.name "someone"
+$ git config --global user.email "someone@someplace.com"
+
+
+git remote add <remote_name> <CVCS_url>
+------------------------------------------------------------------
+How to create a track between local and remote
+------------------------------------------------------------------
+(base) ay@Neelkanth:~/PycharmProjects/DevOps$ git push --set-upstream origin master
+Username for 'https://github.com': username@email.com
+Password for 'username@github.com': github_password
+Counting objects: 15, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (15/15), 2.28 KiB | 1.14 MiB/s, done.
+Total 15 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/ankitjnyadav/DevOps.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+(base) ay@Neelkanth:~/PycharmProjects/DevOps$
+------------------------------------------------------------------
+(base) ay@Neelkanth:~/PycharmProjects/DevOps$ git remote show origin
+* remote origin
+  Fetch URL: https://github.com/ankitjnyadav/DevOps.git
+  Push  URL: https://github.com/ankitjnyadav/DevOps.git
+  HEAD branch: master
+  Remote branch:
+    master tracked
+  Local branch configured for 'git pull':
+    master merges with remote master
+  Local ref configured for 'git push':
+    master pushes to master (up to date)
+------------------------------------------------------------------
+
