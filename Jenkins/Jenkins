@@ -49,3 +49,18 @@ Every task you want jenkins to perform, we need to create a Job (Jenkins).
 
 > The First screen after login is known as Dashboard or Jenkins portal.
 > Job is also known as item.
+
+
+Every project/job will have their own workspace.
+
+Pipeline -->
+> Go to Github
+> Download the code
+> Copy the code to var/www/html
+
+For Rehat/CentOs:
+setfacl -m u:jenkins:rwx /var/www/html/
+
+For Ubuntu:
+cd /var
+sudo chown -R jenkins:root www/
