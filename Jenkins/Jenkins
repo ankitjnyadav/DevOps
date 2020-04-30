@@ -1,0 +1,51 @@
+Jenkins is built on Java
+Hence Jenkins wont run untils JDK/JRE is not present on the system.
+
+Java has several versions
+Install OpenJDK
+
+Steps to install Jenkins
+sudo wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get update
+sudo apt-get install jenkins
+
+To start any server or program we can use systemctl start jenkins
+-----------------------------------------------------------------
+(base) ay@Neelkanth:~/PycharmProjects/DevOps$ systemctl start jenkins
+-----------------------------------------------------------------
+(base) ay@Neelkanth:~/PycharmProjects/DevOps$ systemctl status jenkins
+● jenkins.service - LSB: Start Jenkins at boot time
+   Loaded: loaded (/etc/init.d/jenkins; generated)
+   Active: active (exited) since Thu 2020-04-30 21:05:19 IST; 2min 2s ago
+     Docs: man:systemd-sysv-generator(8)
+    Tasks: 0 (limit: 4915)
+   CGroup: /system.slice/jenkins.service
+
+Apr 30 21:05:18 Neelkanth systemd[1]: Starting LSB: Start Jenkins at boot time...
+Apr 30 21:05:18 Neelkanth jenkins[29604]: Correct java version found
+Apr 30 21:05:18 Neelkanth jenkins[29604]:  * Starting Jenkins Automation Server jenkins
+Apr 30 21:05:18 Neelkanth su[29661]: Successful su for jenkins by root
+Apr 30 21:05:18 Neelkanth su[29661]: + ??? root:jenkins
+Apr 30 21:05:18 Neelkanth su[29661]: pam_unix(su:session): session opened for user jenkins by (uid=0)
+Apr 30 21:05:18 Neelkanth su[29661]: pam_unix(su:session): session closed for user jenkins
+Apr 30 21:05:19 Neelkanth jenkins[29604]:    ...done.
+Apr 30 21:05:19 Neelkanth systemd[1]: Started LSB: Start Jenkins at boot time.
+-----------------------------------------------------------------
+
+To Setup Jenkins:
+
+(base) ay@Neelkanth:~/PycharmProjects/DevOps$ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+ddaf21b4b31449009542e092846782ajdb737
+(base) ay@Neelkanth:~/PycharmProjects/DevOps$
+
+-----------------------------------------------------------------
+
+Continuous Integration
+
+Dev Env --> Continuous Development --> GitHub --> Continuous Deployment --> Released product
+
+Every task you want jenkins to perform, we need to create a Job (Jenkins).
+
+> The First screen after login is known as Dashboard or Jenkins portal.
+> Job is also known as item.
