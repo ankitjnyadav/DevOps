@@ -64,3 +64,31 @@ setfacl -m u:jenkins:rwx /var/www/html/
 For Ubuntu:
 cd /var
 sudo chown -R jenkins:root www/
+
+---------------Day3--------------------
+
+Build Triggers
+--------------
+1. Build periodically
+Syntax is like crontab. [https://www.computerhope.com/unix/ucrontab.htm]
+
+5 Things
+Minute Hours Date Month Day(of the week)
+ 0-59  0-23  1-31 Month M-S
+
+For eg 5th June, 10:05AM
+5 10 5 6 *
+
+5 * * * *
+at 5mins
+at 1hr 5min
+at 2hr 5mins
+
+run on every hour
+
+
+2. Poll SCM
+"Poll SCM" polls the SCM periodically for checking if any changes/ new commits were made
+and shall build the project if any new commits were pushed since the last build,
+whereas the "build" shall build the project periodically irrespective to whether or not any changes were made.
+
