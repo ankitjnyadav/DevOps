@@ -124,3 +124,19 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
     master pushes to master (up to date)
 ------------------------------------------------------------------
 
+---------------Day3--------------------
+
+Hooks
+-----
+
+
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/.git$ ls -a
+.  ..  branches  COMMIT_EDITMSG  config  description  HEAD  hooks  index  info  logs  objects  ORIG_HEAD  refs
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/.git$ cd hooks/
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/.git/hooks$ ls
+applypatch-msg.sample      post-update.sample     prepare-commit-msg.sample  pre-receive.sample
+commit-msg.sample          pre-applypatch.sample  pre-push.sample            update.sample
+fsmonitor-watchman.sample  pre-commit.sample      pre-rebase.sample
+
+
+- Run Hooks(program/script) on specified 'Trigger' points.
