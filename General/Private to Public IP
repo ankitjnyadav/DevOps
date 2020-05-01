@@ -1,0 +1,24 @@
+Tunneling
+---------
+Convert Private IP using tunnel Public IP
+Out of several ways to create tunnel:
+> ngrok
+1. Download ngrok
+Go to --> https://ngrok.com/download
+
+2.Unzip to install
+> unzip /path/to/ngrok.zip
+
+3. Connect your account
+Running this command will add your authtoken to your ngrok.yml file.
+Connecting an account will list your open tunnels in the dashboard, give you longer tunnel timeouts, and more.
+Visit the dashboard to get your authtoken[https://dashboard.ngrok.com/login]
+
+> ./ngrok authtoken <YOUR_AUTH_TOKEN>
+
+4. Fire it up
+ Try it out by running it from the command line:
+ >  ./ngrok help
+
+ To start a HTTP tunnel on port 80, run this next:
+ >  ./ngrok http 80
