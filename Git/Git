@@ -138,5 +138,4 @@ applypatch-msg.sample      post-update.sample     prepare-commit-msg.sample  pre
 commit-msg.sample          pre-applypatch.sample  pre-push.sample            update.sample
 fsmonitor-watchman.sample  pre-commit.sample      pre-rebase.sample
 
-
 - Run Hooks(program/script) on specified 'Trigger' points.
