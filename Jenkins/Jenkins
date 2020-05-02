@@ -110,3 +110,12 @@ remote: Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
 Unpacking objects: 100% (4/4), done.
 From https://github.com/ankitjnyadav/DevOps
    fbb1661..edd6ec9  master     -> origin/master
+
+------------
+ay@Neelkanth:~/PycharmProjects/DevOps$ git ls-remote
+From https://github.com/ankitjnyadav/DevOps.git
+1b03e97fd0e3ebb6e2a14e766eadb1891cbf0d9c        HEAD
+1b03e97fd0e3ebb6e2a14e766eadb1891cbf0d9c        refs/heads/master
+
+
+web-hooks integration on GitHub
