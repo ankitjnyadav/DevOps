@@ -91,3 +91,22 @@ run on every hour
 "Poll SCM" polls the SCM periodically for checking if any changes/ new commits were made
 and shall build the project if any new commits were pushed since the last build,
 whereas the "build" shall build the project periodically irrespective to whether or not any changes were made.
+
+
+----------------------- Day4 -----------------------
+How Jenkins comes to know about any SCM change?
+
+1. Compare commit IDs
+2. Git pull
+
+git fetch [https://www.javatpoint.com/git-fetch]
+[Considering someelse or something is changed on GitHub]
+
+ay@Neelkanth:~/PycharmProjects/DevOps$ git fetch
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/ankitjnyadav/DevOps
+   fbb1661..edd6ec9  master     -> origin/master
