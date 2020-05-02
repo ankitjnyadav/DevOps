@@ -117,5 +117,17 @@ From https://github.com/ankitjnyadav/DevOps.git
 1b03e97fd0e3ebb6e2a14e766eadb1891cbf0d9c        HEAD
 1b03e97fd0e3ebb6e2a14e766eadb1891cbf0d9c        refs/heads/master
 
-
+---
 web-hooks integration on GitHub
+---
+Remote Trigger:
+http://192.168.31.137:8080/job/autowebdeploy/build?token=123
+
+How to connect to webserver ?
+1. GUI (Firefox)
+2. CLI (curl)
+
+curl --user "admin:jenkins" http://192.168.31.137:8080/job/autowebdeploy/build?token=deploy_token
+Fails --> Not Authorized |
+Authentication required
+You are authenticated as: anonymous
