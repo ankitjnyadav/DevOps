@@ -91,4 +91,3 @@ run on every hour
 "Poll SCM" polls the SCM periodically for checking if any changes/ new commits were made
 and shall build the project if any new commits were pushed since the last build,
 whereas the "build" shall build the project periodically irrespective to whether or not any changes were made.
-
