@@ -61,6 +61,8 @@ sudo docker run -dit -p 8082:80 -v /home/ay/Documents/Jenkins/lwweb:/usr/local/a
 fi
 
 Chaining
+Job chaining in Jenkins is the process of automatically starting other job(s) after the execution of a job.
+
 Job1 (Upwnstream project)
  |
  |
