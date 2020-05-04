@@ -63,7 +63,7 @@ fi
 Chaining
 Job chaining in Jenkins is the process of automatically starting other job(s) after the execution of a job.
 
-Job1 (Upwnstream project)
+Job1 (Upstream project)
  |
  |
 Job2 (Downstream project)
