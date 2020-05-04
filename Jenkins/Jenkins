@@ -131,3 +131,12 @@ curl --user "admin:jenkins" http://192.168.31.137:8080/job/autowebdeploy/build?t
 Fails --> Not Authorized |
 Authentication required
 You are authenticated as: anonymous
+
+----------------------- Day5 -----------------------
+
+How to give Jenkins sudo capabilities?
+At the time of Jenkins setup
+
+gedit /etc/sudoers
+
+jenkins	ALL=(ALL:ALL) NOPASSWD:ALL
