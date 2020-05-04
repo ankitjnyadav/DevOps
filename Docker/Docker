@@ -1,0 +1,67 @@
+What is Docker?
+What is Container ?
+What is unique about Docker ?
+Why to use Docker ?
+What are alternatives to Docker ?
+
+
+$ docker pull httpd
+--------------------------------
+(base) ay@Neelkanth:~/PycharmProjects/DevOps$ docker pull httpd
+Using default tag: latest
+latest: Pulling from library/httpd
+54fec2fa59d0: Already exists
+8219e18ac429: Pull complete
+3ae1b816f5e1: Pull complete
+a5aa59ad8b5e: Pull complete
+4f6febfae8db: Pull complete
+Digest: sha256:c9e4386ebcdf0583204e7a54d7a827577b5ff98b932c498e9ee603f7050db1c1
+Status: Downloaded newer image for httpd:latest
+docker.io/library/httpd:latest
+--------------------------------
+
+How to copy your files to Webserver
+
+Manually
+$ docker cp Google.css devops_webserver:/usr/local/apache2/htdocs/
+$ docker cp index.html devops_webserver:/usr/local/apache2/htdocs/
+
+Mount/Link the workspace to the webserver (changes automatically gets reflected)
+$ docker run -dit --name devops_webserver2 -v /home/ay/PycharmProjects/DevOps:/usr/local/apache2/htdocs/ httpd
+
+-----------------------------------
+Port Address Translation (PAT), is an extension to network address translation (NAT) that permits multiple devices
+on a local area network (LAN) to be mapped to a single public IP address. The goal of PAT is to conserve IP addresses.
+
+Most home networks use PAT. In such a scenario, the Internet Service Provider (ISP) assigns a single IP address to the home network's router.
+When Computer X logs on the Internet, the router assigns the client a port number, which is appended to the internal IP address.
+This, in effect, gives Computer X a unique address. If Computer Z logs on the Internet at the same time, the router assigns it the same local IP address with a different port number.
+Although both computers are sharing the same public IP address and accessing the Internet at the same time, the router knows exactly which computer to send specific packets to because each computer has a unique internal address.
+-----------------------------------
+Diff between PAT and NAT -> https://www.geeksforgeeks.org/difference-between-network-address-translation-nat-and-port-address-translation-pat/
+-----------------------------------
+
+PAT
+$ docker run -dit --name devops_webserver2 -p 8081:80 -v /home/ay/PycharmProjects/DevOps:/usr/local/apache2/htdocs/ httpd
+
+Jenkins integration
+
+Job1:
+sudo cp -v -r -f * /home/ay/Documents/Jenkins/lwweb
+
+Job2:
+sudo docker run -dit -p 8082:80 -v /home/ay/Documents/Jenkins/lwweb:/usr/local/apache2/htdocs/ --name jenkins_wbs httpd
+
+Write condition:
+if sudo docker ps | grep jenkins_wbs
+then
+echo "Already Running!"
+else
+sudo docker run -dit -p 8082:80 -v /home/ay/Documents/Jenkins/lwweb:/usr/local/apache2/htdocs/ --name jenkins_wbs httpd
+fi
+
+Chaining
+Job1 (Upwnstream project)
+ |
+ |
+Job2 (Downstream project)
