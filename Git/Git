@@ -97,7 +97,7 @@ git remote add <remote_name> <CVCS_url>
 ------------------------------------------------------------------
 How to create a track between local and remote
 ------------------------------------------------------------------
-(base) ay@Neelkanth:~/PycharmProjects/DevOps$ git push --set-upstream origin master
+$ ay@Neelkanth:~/PycharmProjects/DevOps$ git push --set-upstream origin master
 Username for 'https://github.com': username@email.com
 Password for 'username@github.com': github_password
 Counting objects: 15, done.
@@ -109,9 +109,9 @@ remote: Resolving deltas: 100% (1/1), done.
 To https://github.com/ankitjnyadav/DevOps.git
  * [new branch]      master -> master
 Branch 'master' set up to track remote branch 'master' from 'origin'.
-(base) ay@Neelkanth:~/PycharmProjects/DevOps$
+$ ay@Neelkanth:~/PycharmProjects/DevOps$
 ------------------------------------------------------------------
-(base) ay@Neelkanth:~/PycharmProjects/DevOps$ git remote show origin
+$ ay@Neelkanth:~/PycharmProjects/DevOps$ git remote show origin
 * remote origin
   Fetch URL: https://github.com/ankitjnyadav/DevOps.git
   Push  URL: https://github.com/ankitjnyadav/DevOps.git
@@ -130,10 +130,10 @@ Hooks
 -----
 
 
-(base) ay@Neelkanth:~/PycharmProjects/DevOps/.git$ ls -a
+$ ay@Neelkanth:~/PycharmProjects/DevOps/.git$ ls -a
 .  ..  branches  COMMIT_EDITMSG  config  description  HEAD  hooks  index  info  logs  objects  ORIG_HEAD  refs
-(base) ay@Neelkanth:~/PycharmProjects/DevOps/.git$ cd hooks/
-(base) ay@Neelkanth:~/PycharmProjects/DevOps/.git/hooks$ ls
+$ ay@Neelkanth:~/PycharmProjects/DevOps/.git$ cd hooks/
+$ ay@Neelkanth:~/PycharmProjects/DevOps/.git/hooks$ ls
 applypatch-msg.sample      post-update.sample     prepare-commit-msg.sample  pre-receive.sample
 commit-msg.sample          pre-applypatch.sample  pre-push.sample            update.sample
 fsmonitor-watchman.sample  pre-commit.sample      pre-rebase.sample
@@ -143,3 +143,79 @@ fsmonitor-watchman.sample  pre-commit.sample      pre-rebase.sample
 
 ---------------Day4--------------------
 Git Fetch
+
+
+
+----------------------- Day8 (Day5 ~ 7) -----------------------
+
+Git Branch
+
+$ gitk
+---------------
+> Commit Area
+> Delta part / Differential part
+> Snapshot vs Backup
+---------------
+$ git log --oneline
+$ git show <commitID>
+$ git diff <commitID_1> <commitID_2>
+$ git diff HEAD <commitID_2>
+---------------
+$ git branch -a  [To see all the branches]
+---------------
+$ git log --oneline --graph
+ay@Neelkanth:~/PycharmProjects/DevOps$ git log --oneline --graph
+* ee52f23 (HEAD -> master, origin/master) Job Chaining
+* b29f920 Job Chaining
+* cc244c8 Docker Integration with Jenkins
+* 523576d Jenkins sudo capabilities
+* 4444cc7 Updating Footer
+* 19b7d43 Web-Hooks
+*   1b03e97 Day4
+|\
+| * edd6ec9 git fetch overview
+* | d2e5620 SHA
+* | e2495d6 Hooks
+* | ca844e0 Hooks
+|/
+* fbb1661 Types of Build Triggers
+* 57b37fc How to convert Private IP to Public IP
+* 054d9bb Introduction to Jenkins
+* 9571af0 Hello DevOps World!
+---------------
+$ git merge <branch_to_be_merged>
+This is fast - forward merge
+
+Eg. Dev1 has 3 additional commits
+i.e. Master is behind these 3 commits
+When you are on master branch
+$ git merge dev1 --> This will merge 3 commits to master
+
+---------------
+> Git push -- per branch / branch specific
+---------------
+To check local branches
+$ ay@Neelkanth:~/PycharmProjects/DevOps$ git branch
+* master
+
+---------------
+To check all local branches (local + remote)
+$ ay@Neelkanth:~/PycharmProjects/DevOps$ git branch -a
+* master
+  remotes/origin/master
+---------------
+git checkout -b dev2
+change the branch and if branch doesn't exist create branch dev2
+---------------
+
+$ git push -all
+
+
+Lets say you are on branch dev2
+and you are not able to work due to some reasons
+and master branch has now some changes and you dont have anything on your plate
+so you can rebase your branch with master branch
+so,
+
+$ git rebase master
+[Provided you are on your branch (dev2)]
