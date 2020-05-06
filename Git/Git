@@ -219,3 +219,5 @@ so,
 
 $ git rebase master
 [Provided you are on your branch (dev2)]
+
+------ Working on Project -----
