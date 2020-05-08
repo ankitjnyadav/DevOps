@@ -140,3 +140,29 @@ At the time of Jenkins setup
 gedit /etc/sudoers
 
 jenkins	ALL=(ALL:ALL) NOPASSWD:ALL
+
+----------------------- Day9 -----------------------
+
+Jenkins has 2 executor (by default)
+Only two jobs will run in parallel (by default)
+
+You can change in 'Manage Jenkins' >> 'Configure System' >> '# of executors'
+
+Piepline
+1. Build Pipeline
+2. Delivery Pipeline
+
+Plugin
+1. Delivery Pipeline
+2. Build Pipeline
+
+Installed - docker pull vimal13/apache-webserver-php
+
+How to get Status code of a website
+e=$(curl -o /dev/null -s -w "%{http_code}" localhost:8085)
+echo $e
+if [[ $e==200 ]]; then exit 0; else exit 1 'Bad'; fi
+
+So the pipeline would have a flow like:
+
+github --> deploy_test --> testing_test_env --> production_deploy
