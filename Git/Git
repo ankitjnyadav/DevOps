@@ -265,3 +265,9 @@ ay@Neelkanth:~/PycharmProjects/DevOps$ git log --oneline
 3f9145e Delivery/Build Pipeline
 2c4708e New Branch
 -------------------------------
+
+
+Git Rebase
+> On dev1 branch - 2 commits behind master branch
+
+git rebase master
