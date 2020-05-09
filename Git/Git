@@ -248,4 +248,20 @@ a90b51a Creating branch
 > When we merge, history from dev1 branch is also attached to master branch.
 
 merge with squash
+git merge --squash dev1
 
+When we merge with squash
+it copies all the new file's data in current branch without any history
+Hence we need to add the files and commit them.
+
+-------------------------------
+ay@Neelkanth:~/PycharmProjects/DevOps$ git branch
+  dev1
+* master
+-------------------------------
+ay@Neelkanth:~/PycharmProjects/DevOps$ git log --oneline
+1938631 (HEAD -> master) Git Merge
+02f546a (origin/master) Git Merge
+3f9145e Delivery/Build Pipeline
+2c4708e New Branch
+-------------------------------
