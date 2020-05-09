@@ -223,3 +223,28 @@ $ git rebase master
 ------ Working on Project -----
 
 Creating new branch on GitHub
+
+
+------------ Day10 --------------
+
+$ git merge <from_which_branch>
+$ git merge dev1   [Consider we are on the master branch]
+---------------------------------
+ay@Neelkanth:~/PycharmProjects/DevOps$ git merge dev1
+Updating 77560df..3f9145e
+Fast-forward
+ Git/Git         |  6 +++++-
+ Jenkins/Jenkins | 26 ++++++++++++++++++++++++++
+ index.php       |  3 +++
+ 3 files changed, 34 insertions(+), 1 deletion(-)
+ create mode 100644 index.php
+--------------------------------
+ay@Neelkanth:~/PycharmProjects/DevOps$ git log --oneline
+3f9145e (HEAD -> master, origin/master, origin/dev1, dev1) Delivery/Build Pipeline
+2c4708e New Branch
+a90b51a Creating branch
+--------------------------------
+
+> When we merge, history from dev1 branch is also attached to master branch.
+
+merge with squash
