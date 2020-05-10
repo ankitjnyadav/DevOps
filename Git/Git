@@ -271,3 +271,13 @@ Git Rebase
 > On dev1 branch - 2 commits behind master branch
 
 git rebase master
+
+
+
+Use git rebase --abort. From the official Linux kernel documentation for git rebase:
+
+git rebase --continue | --skip | --abort | --edit
+
+
++ Difference is Rebase and Merge
++ Merge commit
