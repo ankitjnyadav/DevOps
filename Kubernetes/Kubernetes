@@ -1,0 +1,37 @@
+https://kubernetes.io/docs/tasks/tools/install-minikube/#install-minikube-using-a-package
+
+minikube start --driver=<driver_name>
+minikube start --driver=virtualbox
+
+Commands Used in the Day
+--------------------------------------------------
+ kubectl get pods
+ kubectl -h
+ kubectl run myweb --image=centos
+ kubectl get pods
+ kubectl run myweb --image=ankitjnyadav/webserver
+ kubectl run ayweb --image=ankitjnyadav/webserver
+ kubectl delete pods myweb
+ kubectl get pods
+ kubectl create deployment myweb1 --imagevimal13/apache-webserver-php
+ kubectl create deployment myweb1 --image=vimal13/apache-webserver-php
+ kubectl get pods
+ kubectl get deployment
+ kubectl get pods
+ kubectl get deployment
+ kubectl describe pods
+ kubectl describe pods | grep IP
+ kubectl expose deployment myweb1 --port 80 --type=Node
+ kubectl expose deployment myweb1 --port 80 --type=NodePort
+ kubectl service myweb1 --url
+ minikube service myweb1 --url
+ kubectl get pods
+ kubectl delete pods myweb1-6dcc8c6fb4-8nhhw
+ kubectl get pods
+ kubectl delete pods ayweb
+ kubectl scale deployment myweb1 --replicas=3
+ kubectl get pods
+ kubectl get deployment
+ kubectl get pods
+ kubectl get all
+--------------------------------------------------
