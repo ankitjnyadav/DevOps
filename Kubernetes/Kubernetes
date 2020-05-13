@@ -35,3 +35,53 @@ Commands Used in the Day
  kubectl get pods
  kubectl get all
 --------------------------------------------------
+
+1998  kubectl delete all --all
+ 1999  kubectl create deployment myweb --image=vimal13/apache-webserver-php
+ 2000  kubectl get deployments
+ 2001  kubectl get deployment
+ 2002  kubectl get dc
+ 2003  kubectl exec myweb
+ 2004  kubectl exec myweb bash
+ 2005  kubectl exec -it myweb bash
+ 2006  kubectl get pods
+ 2007  kubectl exec -it myweb-6bffb6b45c-hpc5g bash
+ 2008  kubectl set env deployment myweb --env=x=10
+ 2009  kubectl get pods
+ 2010  kubectl exec -it myweb-79d79ccd54-8xlxj bash
+ 2011  kubectl create deployment mydb --image=mysql:5.7
+ 2012  get deployments
+ 2013  k8s get deployments
+ 2014  kubectl get deployments
+ 2015  kubectl get pods
+ 2016* kubectl
+ 2017  kubectl set
+ 2018  kubectl set env
+ 2019  kubectl set env -h
+ 2020  kubectl set env deployments mydb --env=MYSQL_ROOT_PASSWORD=redhat --env=MYSQL_USER=ay --env=MYSQL_PASSWORD=redhat --env=MYSQL_DATABASE=db
+ 2021  kubectl get pods
+ 2022  kubectl get deployments
+ 2023  kubectl get pods
+ 2024  kubectl get deployments
+ 2025  kubectl set env deployments mydb --env=MYSQL_ROOT_PASSWORD=redhat --env=MYSQL_USER=ay --env=MYSQL_PASSWORD=redhat --env=MYSQL_DATABASE=db
+ 2026  kubectl get deployments
+ 2027  kubectl get pods
+ 2028  kubectl describe pods mydb-7b4fb75947-tcnqc
+ 2029  set
+ 2030  set | grep ay
+ 2031  kubectl create deployment mydb --image=mysql:5.7
+ 2032  kubectl create deployment mydb1 --image=mysql:5.7
+ 2033  kubectl create deployment mydb1 --image=mysql
+ 2034  kubectl set env deployments mydb1 --env=MYSQL_ROOT_PASSWORD=redhat --env=MYSQL_USER=ay --env=MYSQL_PASSWORD=redhat --env=MYSQL_DATABASE=db
+ 2035  kubectl get pods
+ 2036  kubectl set env deployment mydb1 --env=MYSQL_ROOT_PASSWORD=redhat --env=MYSQL_USER=ay --env=MYSQL_PASSWORD=redhat --env=MYSQL_DATABASE=db
+ 2037  kubectl create deployment mydb1 --image=mysql:5.7
+ 2038  kubectl set env deployment mydb1 --env=MYSQL_ROOT_PASSWORD=redhat --env=MYSQL_USER=ay --env=MYSQL_PASSWORD=redhat --env=MYSQL_DATABASE=db
+ 2039  kubectl create deployment mywp --image=wordpress:php7.3-apache
+ 2040  kubectl create deployment mydb --image=mysql:5.7
+ 2041  kubectl set env deployment mydb --env=MYSQL_ROOT_PASSWORD=redhat --env=MYSQL_USER=ay --env=MYSQL_PASSWORD=redhat --env=MYSQL_DATABASE=db
+ 2042  kubectl get pods
+ 2043  kubectl expose deployments mywp --port=80 --type=NodePort
+ 2044  minikube service mywp --url
+ 2045  kubectl get pods
+ 2046  history
