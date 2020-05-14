@@ -140,6 +140,11 @@ fsmonitor-watchman.sample  pre-commit.sample      pre-rebase.sample
 
 - Run Hooks(program/script) on specified 'Trigger' points.
 
+---
+#!/bin/bash
+echo "Hello Git!"
+git push
+curl --user "admin:jenkins" http://192.168.31.137:8080/job/autowebdeploy/build?token=deploy_token
 
 ---------------Day4--------------------
 Git Fetch
