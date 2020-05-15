@@ -85,3 +85,122 @@ Commands Used in the Day
  2044  minikube service mywp --url
  2045  kubectl get pods
  2046  history
+--------------------------------------------------
+The Manifest File
+
+POD not is Container
+POD is the atomic unit of Kubernetes
+POD contains container which it manages
+POD is a box (containing the container)
+
+
+adhoc commands / CLI - kubectl commands
+SerDe --  Serailization-Deserialization
+DSL - Domain Specific Languange
+Declarative Lang/Approach -> JSON, Yaml
+
+
+pod1.yml
+#kubectl run myweb_pod --image=httpd
+apiVersion: v1
+kind: Pod       #Type of Resource.. Name starts with Capital
+metadata:
+  name: myweb-pod
+
+spec:           #Specification of the Pod Can contain multiple container or single container pod
+  container:
+  - name: myweb-con
+    image: httpd
+
+
+ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl expose pods myweb-pod --port=80 --type=NodePort
+error: couldn't retrieve selectors via --selector flag or introspection: the pod has no labels and cannot be exposed
+-------------------------------------------------------
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl create -f pod1.yml
+pod/myweb-pod created
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl delete -f pod1.yml
+pod "myweb-pod" deleted
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ gedit pod1.yml
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl create -f pod1.yml
+pod/myweb-pod created
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl describe pod web-pod
+Error from server (NotFound): pods "web-pod" not found
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl describe pod myweb-pod
+Name:         myweb-pod
+Namespace:    default
+Priority:     0
+Node:         minikube/192.168.99.100
+Start Time:   Fri, 15 May 2020 22:28:22 +0530
+Labels:       country=IN
+              dc=2
+              name=myweb
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.4
+IPs:
+  IP:  172.17.0.4
+Containers:
+  myweb-con:
+    Container ID:   docker://0e1fa7fbb3c763883d275e1c7deabb09bf1617a3b390f78ba83adae6cda62171
+    Image:          httpd
+    Image ID:       docker-pullable://httpd@sha256:1b8cfffba41d8dee09d14d35a7db33461a2189cc27e11c0f1f17857fe582b257
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Fri, 15 May 2020 22:28:27 +0530
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-ktb7h (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             True
+  ContainersReady   True
+  PodScheduled      True
+Volumes:
+  default-token-ktb7h:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-ktb7h
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  20s   default-scheduler  Successfully assigned default/myweb-pod to minikube
+  Normal  Pulling    20s   kubelet, minikube  Pulling image "httpd"
+  Normal  Pulled     15s   kubelet, minikube  Successfully pulled image "httpd"
+  Normal  Created    15s   kubelet, minikube  Created container myweb-con
+  Normal  Started    15s   kubelet, minikube  Started container myweb-con
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl describe pod myweb-pod | grep Labels
+Labels:       country=IN
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl get pods -l country=IN
+NAME        READY   STATUS    RESTARTS   AGE
+myweb-pod   1/1     Running   0          69s
+-------------------------------------------------------------
+ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl describe service myweb-pod
+Name:                     myweb-pod
+Namespace:                default
+Labels:                   country=IN
+                          dc=2
+                          name=myweb
+Annotations:              <none>
+=====================================================
+Selector:                 country=IN,dc=2,name=myweb | Based on this they exposed the port
+=====================================================
+Type:                     NodePort
+IP:                       10.111.151.0
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+NodePort:                 <unset>  31610/TCP
+Endpoints:                172.17.0.4:80
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$
+-------------------------------------------------------------
+
