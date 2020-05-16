@@ -1,0 +1,239 @@
+------------------------------------------------------------------------------------
+ 1003  minikube status
+ 1004  minikube start
+ 1005  minikube start --driver=virtualbox
+ 1006  kubectl get pods
+ 1007  kubectl delete all --all
+ 1008  cp pod1.yml pod2.yml
+ 1009  gedit pod2.yml 
+ 1010  kubectl create -f pod2.yml 
+ 1011  gedit pod2.yml 
+ 1012  kubectl create -f pod2.yml 
+ 1013  gedit pod2.yml 
+ 1014  kubectl create -f pod2.yml 
+ 1015  kubectl get pods -l env=porduction
+ 1016  kubectl get pods -l env=testing
+ 1017  kubectl get pods -l region=IN
+ 1018  kubectl get pods -l region=IN --show-label
+ 1019  kubectl get pods --show-label
+ 1020  kubectl get pods -l region!=IN
+ 1021  kubectl get pods -l region=IN --show-labels
+ 1022  kubectl get pods -l env in (porduction,testing)
+ 1023  kubectl get pods -l "env in (porduction,testing)"
+ 1024  kubectl get pods -l "env notin (porduction,testing)"
+ 1025  kubectl get pods -l "env notin (porduction)"
+ 1026  kubectl get pods -l "env notin (porduction) region in (IN)"
+ 1027  kubectl get pods -l "env notin (porduction), region in (IN)"
+ 1028  kubectl -h
+------------------------------------------------------------------------------------
+
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl get pods
+NAME         READY   STATUS    RESTARTS   AGE
+myweb-pod    1/1     Running   0          46m
+myweb-pod2   1/1     Running   0          45m
+myweb-pod3   1/1     Running   0          45m
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl delete all --all
+pod "myweb-pod" deleted
+pod "myweb-pod2" deleted
+pod "myweb-pod3" deleted
+service "kubernetes" deleted
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl get rc
+No resources found in default namespace.
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl create -f rc1.yml 
+replicationcontroller/myweb-rc created
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl get rc
+NAME       DESIRED   CURRENT   READY   AGE
+myweb-rc   3         3         0       3s
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl get pods
+NAME             READY   STATUS              RESTARTS   AGE
+myweb-rc-fvs62   1/1     Running             0          11s
+myweb-rc-jjmn8   0/1     ContainerCreating   0          11s
+myweb-rc-ppjnb   1/1     Running             0          11s
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl get pods --show-labels
+NAME             READY   STATUS    RESTARTS   AGE   LABELS
+myweb-rc-fvs62   1/1     Running   0          24s   env=production
+myweb-rc-jjmn8   1/1     Running   0          24s   env=production
+myweb-rc-ppjnb   1/1     Running   0          24s   env=production
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl describe rc myweb-rc
+Name:         myweb-rc
+Namespace:    default
+Selector:     env=production
+Labels:       env=production
+Annotations:  <none>
+Replicas:     3 current / 3 desired
+Pods Status:  3 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:  env=production
+  Containers:
+   myweb-con:
+    Image:        httpd
+    Port:         <none>
+    Host Port:    <none>
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Events:
+  Type    Reason            Age   From                    Message
+  ----    ------            ----  ----                    -------
+  Normal  SuccessfulCreate  117s  replication-controller  Created pod: myweb-rc-ppjnb
+  Normal  SuccessfulCreate  117s  replication-controller  Created pod: myweb-rc-jjmn8
+  Normal  SuccessfulCreate  117s  replication-controller  Created pod: myweb-rc-fvs62
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl describe rc/myweb-rc
+Name:         myweb-rc
+Namespace:    default
+Selector:     env=production
+Labels:       env=production
+Annotations:  <none>
+Replicas:     3 current / 3 desired
+Pods Status:  3 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:  env=production
+  Containers:
+   myweb-con:
+    Image:        httpd
+    Port:         <none>
+    Host Port:    <none>
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Events:
+  Type    Reason            Age   From                    Message
+  ----    ------            ----  ----                    -------
+  Normal  SuccessfulCreate  2m1s  replication-controller  Created pod: myweb-rc-ppjnb
+  Normal  SuccessfulCreate  2m1s  replication-controller  Created pod: myweb-rc-jjmn8
+  Normal  SuccessfulCreate  2m1s  replication-controller  Created pod: myweb-rc-fvs62
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ cp rc1.yml rs1.yml
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ gedti rs1.yml 
+
+Command 'gedti' not found, did you mean:
+
+  command 'gedit' from snap gedit (3.36.0+git7.764f9c67f)
+  command 'gedit' from deb gedit
+
+See 'snap info <snapname>' for additional versions.
+
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ gedit rs1.yml 
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl get rs
+No resources found in default namespace.
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl delete all --all
+pod "myweb-rc-fvs62" deleted
+pod "myweb-rc-jjmn8" deleted
+pod "myweb-rc-ppjnb" deleted
+replicationcontroller "myweb-rc" deleted
+service "kubernetes" deleted
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl create -f rs1.yml 
+error: error validating "rs1.yml": error validating data: ValidationError(ReplicaSet.spec.selector): unknown field "env" in io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector; if you choose to ignore these errors, turn validation off with --validate=false
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ gedit rs1.yml 
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ gedit rs1.yml 
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ gedit rs1.yml 
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl create -f rs1.yml 
+error: error validating "rs1.yml": error validating data: ValidationError(ReplicaSet.spec.selector): unknown field "env" in io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector; if you choose to ignore these errors, turn validation off with --validate=false
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl get pods
+No resources found in default namespace.
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ gedit rs1.yml 
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ gedit rs1.yml 
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl create -f rs1.yml 
+The ReplicaSet "myweb-rs" is invalid: 
+* spec.selector.matchExpressions[0].operator: Invalid value: "in": not a valid selector operator
+* spec.selector.matchExpressions[1].operator: Invalid value: "in": not a valid selector operator
+* spec.selector: Invalid value: v1.LabelSelector{MatchLabels:map[string]string(nil), MatchExpressions:[]v1.LabelSelectorRequirement{v1.LabelSelectorRequirement{Key:"env", Operator:"in", Values:[]string{"production"}}, v1.LabelSelectorRequirement{Key:"region", Operator:"in", Values:[]string{"IN"}}}}: invalid label selector
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ gedit rs1.yml 
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl create -f rs1.yml 
+replicaset.apps/myweb-rs created
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl get rs
+NAME       DESIRED   CURRENT   READY   AGE
+myweb-rs   3         3         1       8s
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl describe rs myweb-rs
+Name:         myweb-rs
+Namespace:    default
+Selector:     env in (production),region in (IN)
+Labels:       <none>
+Annotations:  <none>
+Replicas:     3 current / 3 desired
+Pods Status:  3 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:  dc=2
+           env=production
+           region=IN
+  Containers:
+   myweb-con:
+    Image:        httpd
+    Port:         <none>
+    Host Port:    <none>
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Events:
+  Type    Reason            Age    From                   Message
+  ----    ------            ----   ----                   -------
+  Normal  SuccessfulCreate  2m10s  replicaset-controller  Created pod: myweb-rs-b5slj
+  Normal  SuccessfulCreate  2m10s  replicaset-controller  Created pod: myweb-rs-c8bzj
+  Normal  SuccessfulCreate  2m10s  replicaset-controller  Created pod: myweb-rs-8lrfd
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl get pods -l "env in (production),region in (IN)
+> "
+NAME             READY   STATUS    RESTARTS   AGE
+myweb-rs-8lrfd   1/1     Running   0          4m12s
+myweb-rs-b5slj   1/1     Running   0          4m12s
+myweb-rs-c8bzj   1/1     Running   0          4m12s
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl get pods -l "env in (production),region in (IN)"
+NAME             READY   STATUS    RESTARTS   AGE
+myweb-rs-8lrfd   1/1     Running   0          4m19s
+myweb-rs-b5slj   1/1     Running   0          4m19s
+myweb-rs-c8bzj   1/1     Running   0          4m19s
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl delete all --all
+pod "myweb-rs-8lrfd" deleted
+pod "myweb-rs-b5slj" deleted
+pod "myweb-rs-c8bzj" deleted
+service "kubernetes" deleted
+replicaset.apps "myweb-rs" deleted
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ cp rs1.yml rs2.yml
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ gedit rs2.yml 
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl delete all --all
+service "kubernetes" deleted
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl get pods
+No resources found in default namespace.
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl run mypod123 --image=httpd --labels="env=production"
+pod/mypod123 created
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl get pods --show-labels
+NAME       READY   STATUS    RESTARTS   AGE   LABELS
+mypod123   1/1     Running   0          8s    env=production
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl delete all --all
+pod "mypod123" deleted
+service "kubernetes" deleted
+^[[A(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl run mypod123 --image=httpd 
+Error: unknown flag: --la
+See 'kubectl run --help' for usage.
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl run mypod123 --image=httpd
+pod/mypod123 created
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl get pods --show-labels
+NAME       READY   STATUS              RESTARTS   AGE   LABELS
+mypod123   0/1     ContainerCreating   0          3s    run=mypod123
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl delete all --all
+pod "mypod123" deleted
+service "kubernetes" deleted
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl run mypod123 --image=httpd --labels="env=production"
+pod/mypod123 created
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl create -f rs2.yml 
+replicaset.apps/myweb-rs created
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl get pods --show-labelsNAME             READY   STATUS              RESTARTS   AGE   LABELS
+mypod123         1/1     Running             0          33s   env=production
+myweb-rs-2bg6g   0/1     ContainerCreating   0          5s    env=production
+myweb-rs-6kz65   0/1     ContainerCreating   0          5s    env=production
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl get rs
+NAME       DESIRED   CURRENT   READY   AGE
+myweb-rs   3         3         3       16s
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl delete pod mypod123
+pod "mypod123" deleted
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl delete pod myweb-rs-2bg6g
+pod "myweb-rs-2bg6g" deleted
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl scale rs myweb-rs --replica=5
+Error: unknown flag: --replica
+See 'kubectl scale --help' for usage.
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl scale rs myweb-rs --replicas=5
+replicaset.apps/myweb-rs scaled
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl create -f rs2.yml Error from server (AlreadyExists): error when creating "rs2.yml": replicasets.apps "myweb-rs" already exists
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl replace -f rs2.yml 
+replicaset.apps/myweb-rs replaced
+(base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl delete -f rs2.yml 
+replicaset.apps "myweb-rs" deleted
+

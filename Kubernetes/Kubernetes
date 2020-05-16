@@ -204,3 +204,13 @@ Events:                   <none>
 (base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$
 -------------------------------------------------------------
 
+Replication Controller ->
+Keep montoring the pod and if it fails/down then initiate new
+
+Diff between scale up/down & scale out/in
+
+RC vs RS (Replica Set)
+----------------------
+RC - Equality Based selection i.e. == !=
+RS - Set/rule based selector
+
