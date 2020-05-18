@@ -236,4 +236,15 @@ replicaset.apps/myweb-rs scaled
 replicaset.apps/myweb-rs replaced
 (base) ay@Neelkanth:~/PycharmProjects/DevOps/Kubernetes$ kubectl delete -f rs2.yml 
 replicaset.apps "myweb-rs" deleted
-
+------------------------------------------------------------------------------------
+ kubectl get pods
+ 2004  kubectl get rc
+ 2005  kubectl get rs
+ 2006  ls
+ 2007  pwd
+ 2008  pwd -h
+ 2009  pwd -LP
+ 2010  cat rs2.yml
+ 2011  cat rs1.yml
+ 2012  kubectl expose rs myweb-rs --port=80 --tyep=NodePort
+ 2013  kubectl expose rs myweb-rs --port=80 --type=NodePort

@@ -214,3 +214,5 @@ RC vs RS (Replica Set)
 RC - Equality Based selection i.e. == !=
 RS - Set/rule based selector
 
+-------------------------------------------------------------
+
