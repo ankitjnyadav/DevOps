@@ -216,3 +216,10 @@ RS - Set/rule based selector
 
 -------------------------------------------------------------
 
+Deployment
+Update Strategy
+- Recreate
+- Ramped  *Mostly Used* Also known as rolling update strategies
+- Blue/green
+- A/B Testing
+- Canary
