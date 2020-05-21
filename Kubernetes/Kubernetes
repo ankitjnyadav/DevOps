@@ -223,3 +223,13 @@ Update Strategy
 - Blue/green
 - A/B Testing
 - Canary
+
+-------------------------------------------------------------
+
+Storage in Containers
+1. Ephemeral storage - Eg. Like C: , if crashes we loose our date
+2. Persistent storage - Eg. Like Pendrive
+
+Persistant Volume (Claim) - PVC
+
+

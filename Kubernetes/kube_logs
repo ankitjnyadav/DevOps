@@ -248,3 +248,93 @@ replicaset.apps "myweb-rs" deleted
  2011  cat rs1.yml
  2012  kubectl expose rs myweb-rs --port=80 --tyep=NodePort
  2013  kubectl expose rs myweb-rs --port=80 --type=NodePort
+------------------------------------------------------------------------------------
+ 1003  kubectl get pv
+ 1004  kubectl get pods
+ 1005  kubectl get rs
+ 1006  kubectl get rc
+ 1007  kubectl get deployment
+ 1008  kubectl get pv
+ 1009  kubectl get mount
+ 1010  kubectl get pvc
+ 1011  kubectl get pods
+ 1012  kubectl get pod
+ 1013  kubectl get po
+ 1014  kubectl get sc
+ 1015  kubectl get storageclass
+ 1016  cp pod1.yml pod_pv.yml
+ 1017  gedit pod_pv.yml
+ 1018  gedit web-pvc.yml
+ 1019  kubectl create -f web-pvc.yml
+ 1020  gedit web-pvc.yml
+ 1021  kubectl create -f web-pvc.yml
+ 1022  kubectl get pc
+ 1023  kubectl get pv
+ 1024  kubectl get pvc
+ 1025  kubectl describe pvc
+ 1026  kubectl get po
+ 1027  kubectl create -f pod_pv.yml
+ 1028  kube get pods
+ 1029  kubectl get pods
+ 1030  kubectl describe pod myweb-pod
+ 1031  kubectl delete all --all
+ 1032  kubectl delete pvc --all
+ 1033  kubectl delete pv --all
+ 1034  cp pod_pv.yml pod_mysql.yml
+ 1035  kubectl logs podName
+ 1036  kubectl create -f pod_mysql.yml
+ 1037  kubectl get pods
+ 1038  kubectl logs dbpod1
+ 1039  kubectl get pods
+ 1040  kubectl logs dbpod1
+ 1041  cp pod_pv.yml pod_db_pv.yml
+ 1042  cp web-pvc.yml db-pvc.yml
+ 1043  kubectl delete all --all
+ 1044  kubectl create -f db-pvc.yml
+ 1045  kubectl create -f pod_mysql.yml
+ 1046  kubectl get pods
+ 1047  kubectl describe pods
+ 1048  kubectl replace -f db-pvc.yml
+ 1049  kubectl replace -f pod_mysql.yml
+ 1050  kubectl delete all --all
+ 1051  kubectl delete pvc
+ 1052  kubectl get pvc
+ 1053  kubectl delete pvc --all
+ 1054  kubectl get pvc
+ 1055  kubectl get pv
+ 1056  kubectl create -f db-pvc.yml
+ 1057  kubectl create -f pod_mysql.yml
+ 1058  kubectl get po
+ 1059  kubectl decribe pod dbpod1
+ 1060  kubectl describe pod dbpod1
+ 1061  kubectl delete pods --all
+ 1062  kubectl create -f pod_mysql.yml
+ 1063  kubectl get po
+ 1064  kubectl logs dbpod1
+ 1065  kubectl get scret
+ 1066  kubectl get secret
+ 1067  touch db-secret.yml
+ 1068  kubectl create -f db-secret.yml
+ 1069  kubectl get secret
+ 1070* kubectl describe db-secret
+ 1071  kubectl get secret
+ 1072  kubectl get mysecure
+ 1073  kubectl describe mysecure
+ 1074  kubectl describe secret mysecure
+ 1075  kubectl describe secret mysecure -o yml
+ 1076  kubectl get secret mysecure -o yml
+ 1077  kubectl get secret mysecure -o yaml
+ 1078  kubectl get secret mysecure -o yaml > secret.yml
+ 1079  kubectl get secret mysecure -o yaml >> secret.yml
+ 1080  kubectl delete pods --all
+ 1081  kubectl create -f pod_mysql.yml
+ 1082  kubectl get pods
+ 1083  kubectl desribe pod dbpod1
+ 1084  kubectl describe pod dbpod1
+ 1085  kubectl exec -it dbpod1 -- bash
+ 1086  kubectl delete all --all
+ 1087  kubectl get secret
+ 1088  kubectl get pvc
+ 1089  kubectl get pv
+ 1090  kubectl delete secret mysecure
+ 1091  kubectl delete pvc db-pvc1

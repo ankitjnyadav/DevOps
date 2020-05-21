@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Pod       #Type of Resource.. Name starts with Capital
+metadata:
+  name: dbpod1
+  labels:
+    country: IN
+    name: myweb
+    dc: '2'    
+
+spec:           #Specification of the Pod Can contain multiple container or single container pod
+  containers:
+  - name: mydb-con
+    image: mysql:5.7
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: mysecure
+          key: root_pwd
+    - name: MYSQL_USER
+      value: ay
+    - name: MYSQL_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: mysecure
+          key: user_pwd
+    - name: MYSQL_DATABASE
+      value: mydb
+
+    volumeMounts:
+      - name: db-vol1
+        mountPath: /var/www/html
+
+  volumes:
+    - name: db-vol1
+      persistentVolumeClaim:
+        claimName: db-pvc1
