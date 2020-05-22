@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod       #Type of Resource.. Name starts with Capital
+metadata:
+  name: pod1
+  labels:
+    country: IN
+    name: myweb
+    dc: '2'
+    env: testing
+
+spec:           #Specification of the Pod Can contain multiple container or single container pod
+  containers:
+  - name: myweb-con
+    image: httpd

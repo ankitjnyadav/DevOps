@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+  labels:
+    app: myapp-service
+
+spec:
+  selector:
+    env: testing    #Pod will be selected based on this not IP
+  type: ClusterIP
+  ports:
+    - port: 81
+      targetPort: 80

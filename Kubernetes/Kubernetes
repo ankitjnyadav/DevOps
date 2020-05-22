@@ -232,4 +232,19 @@ Storage in Containers
 
 Persistant Volume (Claim) - PVC
 
+-------------------------------------------------------------
 
+Kubelet - duty is to take the requirment from master and contact the Container Enginer like Docker.
+If Kubelet is down, node gets disconnected from master.
+
+
+Secret data is stored in ECD
+
+Service [is name of Program] - Kubernetes does Kube Proxy and Load Balancing.
+
+Three different Types of Service:
+1. NodePort -> IP provided can be accessed by outside world
+2. LoadBalancer
+3. ClusterIP -> IP provided is isolated, cannot be accessed by outside world
+--
+4. ExternalName
