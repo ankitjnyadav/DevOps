@@ -32,3 +32,35 @@ In DB it stores 3 things:
 Eg of Query: node_memory_MemFree_bytes{instance="localhost:9100",job="node1"}
 Another Eg: up{job="node1"}
 
+--------------------------------------------------------
+
+Exporter -> As they export the metrics. Can also be considered as an Agent.
+Prometheus pulls the metrics from exporter.
+
+
+Docker Intregation:
+https://docs.docker.com/config/daemon/prometheus/
+
+cd /etc/docker/key.json
+
+
+Restart the prometheus program without terminating it (Downtime)
+------
+ps -aux | grep prometheus
+kill -HUP pid
+------
+This will restart the program.
+------
+pgrep prometheus/process_name
+will return process ID
+------
+kill -HUP $(pgrep prometheus)
+
+Kill signals -- man 7 signal
+
+promQL-
+node_memory_MemFree_bytes{job="node1"}[1m]
+
+
+Grafana
+
