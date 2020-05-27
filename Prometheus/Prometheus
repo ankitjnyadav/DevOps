@@ -61,6 +61,47 @@ Kill signals -- man 7 signal
 promQL-
 node_memory_MemFree_bytes{job="node1"}[1m]
 
-
+--------------------------------------------------------
 Grafana
+-------
+systemctl daemon-reload
+systemctl enable grafana-server
+systemctl start grafana-server
 
+
+kubectl create deployment myprom --image=vimal13/prometheus
+kubectl expose deployment myprom --type=NodePort --port=9090
+
+
+nohup programName &
+cat nohup.out
+
+
+PromQL
+up
+up{job=~"node."}
+up{job=~"node.|docker"}
+
+
+RegEx:
+. : any one char
+[] : select from the regex within this brackets
+[^0-9] : Will negect, find anything but not anything in between 0-9
+
+abc+ : quantifier - 1 or more times
+abc* : quantifier - 0 or more times
+\s : space
+\w : one character
+\W : All the special character
+\d : Only numbers
+abc{3} : abccc
+abc{3,5} : abcccc
+abc{3,} : Min. 3 and end is undefined
+^hello : Checks in the start of the line
+hello$ : Checks in the end of the line
+^hello$ : Begins and ends on with the chars.
+hello|hi : either hello or hi
+------------------------------------
+
+node_filesystem_size_bytes{job="node1",device=~"/dev/sda.+|/dev/mapper/.+"}
+node_filesystem_size_bytes{job="node1",device=~"/dev/sd[a-z].+|/dev/mapper/.+"}
