@@ -166,3 +166,19 @@ if [[ $e==200 ]]; then exit 0; else exit 1 'Bad'; fi
 So the pipeline would have a flow like:
 
 github --> deploy_test --> testing_test_env --> production_deploy
+
+------------------------------------
+
+Jenkins Cluster
+Homogeneous
+Hetrogeneous
+
+ JNLP Protocol
+
+
+ Jenkins storage(Linux):
+ /var/lib/jenkins/
+
+ For Windows
+ java -jar agent.jar -jnlpUrl http://localhost:8080/computer/windows8_node/slave-agent.jnlp -secret 5440c5d245127875d9a00c76820619ce165c80c72a4ed4d69bed61ad0c79b1ed -workDir "C:\Users\ay\Documents\winjenkins"
+ Download the Jar:
