@@ -67,3 +67,19 @@ Job1 (Upstream project)
  |
  |
 Job2 (Downstream project)
+
+
+Enabling Network connectivity
+--------------------------------------------
+Config/Service File : (/lib/systemd/system/docker.service)
+
+Add->
+ExecStart= -H tcp://0.0.0.0:4243
+
+From Client Machine
+DOCKER_HOST=DOCKER_HOST_IP_ADDRESS:4243
+export DOCKER_HOST=DOCKER_HOST_IP_ADDRESS:4243
+export DOCKER_HOST=192.168.31.137:4243
+echo $DOCKER_HOST
+Now, run
+docker ps

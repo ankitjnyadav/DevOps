@@ -182,3 +182,6 @@ Hetrogeneous
  For Windows
  java -jar agent.jar -jnlpUrl http://localhost:8080/computer/windows8_node/slave-agent.jnlp -secret 5440c5d245127875d9a00c76820619ce165c80c72a4ed4d69bed61ad0c79b1ed -workDir "C:\Users\ay\Documents\winjenkins"
  Download the Jar:
+
+
+ --------------------------------------
