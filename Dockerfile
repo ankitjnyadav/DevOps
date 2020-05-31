@@ -10,6 +10,5 @@ RUN mv ./kubectl /usr/local/bin/kubectl
 RUN kubectl version --client
 RUN mkdir /home/app
 RUN mkdir /var/lib/jenkins/
-#VOLUME /home/ay/Documents/Jenkins/DevOps3
-#COPY /home/ay/Documents/Jenkins/DevOps3/* /home/app
+COPY . /home/app
 #CMD /usr/sbin/httpd -DFOREGROUND
