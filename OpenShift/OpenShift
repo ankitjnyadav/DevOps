@@ -1,0 +1,16 @@
+OpenShift is a Container Platform
+---------------------------------
+Wiki-
+OpenShift is a family of containerization software developed by Red Hat.
+Its flagship product is the OpenShift Container Platform—an on-premises platform
+as a service built around Docker containers orchestrated and managed by Kubernetes
+on a foundation of Red Hat Enterprise Linux. The family's other products provide
+this platform through different environments: OKD serves as the community-driven
+upstream (akin to Fedora), OpenShift Online is the platform offered as software
+as a service, and Openshift Dedicated is the platform offered as a managed service.
+
+The Openshift UI has various functionalities, allowing one to monitor the container
+resources, container health, the nodes the containers reside on, IP addresses of the
+nodes, etc. The key store can be accessed via the Secrets in Openshift. The OC CLI
+command line tool also offers similar functionalities.
+
