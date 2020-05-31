@@ -10,5 +10,5 @@ RUN mv ./kubectl /usr/local/bin/kubectl
 RUN kubectl version --client
 RUN mkdir /home/app
 RUN mkdir /var/lib/jenkins/
-COPY . /home/app
+COPY . /usr/local/apache2/htdocs/
 #CMD /usr/sbin/httpd -DFOREGROUND
