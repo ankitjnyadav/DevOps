@@ -1,0 +1,14 @@
+LXC (Linux Containers) is an operating-system-level virtualization method for running multiple isolated Linux systems (containers) on a control host using a single Linux kernel.
+
+Setup - https://podman.io/getting-started/installation
+------------------------------------------------------
+. /etc/os-release
+sudo sh -c "echo 'deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
+curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key | sudo apt-key add -
+sudo apt-get update -qq
+sudo apt-get -qq -y install podman
+
+Podman - work Daemonless unline docker (docker service)
+
+Image created can be used by Podman and Docker
+But, internal architecture is completely different
