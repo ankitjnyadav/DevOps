@@ -185,3 +185,20 @@ Hetrogeneous
 
 
  --------------------------------------
+
+Job DSL - Plugin
+http://localhost:8080/plugin/job-dsl/api-viewer/index.html
+
+
+job("DSL Generated Job"){
+    description("Creating my first job using DSL")
+    scm{
+        github('scm_url','branch')
+    }
+    triggers{
+        scm(""* * * * *")
+    }
+    steps{
+        shell('sudo docker run -dit ubuntu')
+    }
+}
