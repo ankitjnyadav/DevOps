@@ -1,0 +1,47 @@
+Log is like file/document.
+Metrics is more of a Data.
+
+ElasticSearch is also DB like Prometheus.
+But ElasticSearch stores files.
+
+E - ElasticSearch
+L - LogStash
+K - Kibana
+
+ElasticSearch can be used for log management and for Searching(search engine) too.
+
+
+Installation
+
+1. docker network create elknetwork
+2. docker pull elasticsearch:7.7.1
+   - Elasticsearch port no. 9200
+   - -p 9300:9300 is being exposed as cluster port
+   - For single node cluster (only master) -e "discovery.type=single-node"
+3. docker run -dit --name elasticsearch --net elknetwork -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.7.1
+
+Elastic Search URL - http://localhost:9200/
+Elastic Search is configured.
+
+Now, Kibana
+
+1. docker pull kibana:7.7.1
+2. docker run -dit --name kibana -net elknetwork -p 5601:5601 kibana:7.7.1
+
+Kibana URL - http://localhost:5601/app/kibana#/home
+
+In Kibana,
+DB - Index
+Table - Type
+Data - Data/Document
+
+curl localhost:9200/_cat/indices/
+To check the indices (Database)
+
+Now, LogStash
+1. docker pull logstash:7.7.1
+2. docker run -dit --name logstash --net elknetwork logstash:7.7.1
+Further configuration is still required.
+3. docker exec -it logstash bash
+4. cd config/
+5. vi logstash.yml
