@@ -45,3 +45,6 @@ Further configuration is still required.
 3. docker exec -it logstash bash
 4. cd config/
 5. vi logstash.yml
+
+----------------------------
+

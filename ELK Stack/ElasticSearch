@@ -1,0 +1,17 @@
+ES also understands JSON.
+ES work on HTTP Protocol.
+
+By default,
+curl -X GET localhost:9200
+
+curl -X PUT localhost:9200 { "name" : "AY"}
+
+Chrome Plugins -
+Sense and ElasticSearchHead
+
+
+http://IP_Address:9200/DataBase/Table/Record(Row)
+
+_search -> To search everything : Select * FROM ...
+
+Every record/row is known as document
