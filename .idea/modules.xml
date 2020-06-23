@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DevOps.iml" filepath="$PROJECT_DIR$/.idea/DevOps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../HybridComputing/.idea/HybridComputing.iml" filepath="$PROJECT_DIR$/../HybridComputing/.idea/HybridComputing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../iiec/.idea/iiec.iml" filepath="$PROJECT_DIR$/../iiec/.idea/iiec.iml" />
     </modules>
   </component>
 </project>

@@ -105,3 +105,7 @@ hello|hi : either hello or hi
 
 node_filesystem_size_bytes{job="node1",device=~"/dev/sda.+|/dev/mapper/.+"}
 node_filesystem_size_bytes{job="node1",device=~"/dev/sd[a-z].+|/dev/mapper/.+"}
+
+------------------------------------
+
+Monitoring Apache Server

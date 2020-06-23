@@ -1,0 +1,13 @@
+Logstash is an ETL Tool
+
+Data Sources-
+Log, csv, DB, N/W, Kafka, S3 -- Extract From(Retrieve)
+Transform - Program - Logstash
+Load (Save to) - csv, NoSQL, File, Kafka, S3
+
+Data Tool - Data Engineers use
+
+Data           Process                  Data
+Input ---->  Transform(filter) ------> Output
+
+Data Pipeline
