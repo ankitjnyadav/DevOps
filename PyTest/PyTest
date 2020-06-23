@@ -1,0 +1,14 @@
+TDD - Test Driven Development
+
+pip install pytest
+
+PyTest runs files starting with "test"
+and test the function having asserts
+
+
+For Code Coverage:
+pytest -V --cov-report html --cov=test_1
+
+
+git clone -b branch_name git_repo_url
+
