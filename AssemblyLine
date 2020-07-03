@@ -1,2 +1,19 @@
 Manual Approval - Continuous Delivery
 Automatic Approval - Continuous Deployment
+
+
+https://www.jenkins.io/doc/book/managing/cli/
+
+Goto
+> http://localhost:8080/cli
+
+Download the jenkins-cli.jar
+> java -jar jenkins-cli.jar -s http://localhost:8080/ -webSocket help
+
+Run a Job
+> java -jar jenkins-cli.jar -s http://localhost:8080/ -webSocket build jobName
+
+Eg: java -jar jenkins-cli.jar -s http://localhost:8080/ -webSocket build autowebdeploy
+
+LogIn in CLI
+
